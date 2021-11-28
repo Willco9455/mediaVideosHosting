@@ -1,9 +1,12 @@
 // 61 vids
 
+var pass = ''
+while (pass != 'password') {
+    var pass = prompt('Please Enter Your Password',' ');
+}
+
+
 const fileNames = [ 
-    "./videos/DSC_0006.MOV",
-    "./videos/DSC_0008.MOV",
-    "./videos/DSC_0009.MOV",
     "./videos/DSC_0012.MOV",
     "./videos/DSC_0013.MOV",
     "./videos/DSC_0015.MOV",
@@ -15,6 +18,7 @@ const fileNames = [
     "./videos/DSC_0022.MOV",
     "./videos/DSC_0023.MOV",
     "./videos/DSC_0024.MOV",
+    "./videos/DSC_0008.MOV",
     "./videos/DSC_0025.MOV",
     "./videos/DSC_0026.MOV",
     "./videos/DSC_0028.MOV",
@@ -22,8 +26,10 @@ const fileNames = [
     "./videos/DSC_0030.MOV",
     "./videos/DSC_0031.MOV",
     "./videos/DSC_0032.MOV",
+    "./videos/DSC_0006.MOV",
     "./videos/DSC_0033.MOV",
     "./videos/DSC_0034.MOV",
+    "./videos/DSC_0009.MOV",
     "./videos/DSC_0035.MOV",
     "./videos/DSC_0036.MOV",
     "./videos/DSC_0037.MOV",
@@ -64,11 +70,9 @@ const fileNames = [
     "./videos/VID_20190329_190855.mp4"
 ];
 
-console.log(fileNames.length)
+
 var video = 0
-// var source = document.getElementById("source") 
-// source.setAttribute("src", "./videos/DSC_0006.MOV");
-// source.setAttribute("type", "video/mp4");
+
 
 var vid = document.createElement("video"); 
 var source = document.createElement('source') 
@@ -96,6 +100,7 @@ function next() {
     var source = document.getElementById("source") 
     document.getElementById("title").innerText = "Video " + String(video + 1)
     source.setAttribute("src", fileNames[video]);
+    vid.autoplay = true;
     vid.load();
 }
 
@@ -105,11 +110,12 @@ function back() {
     }else{
         return
     }
-
+    
     var vid = document.getElementById("video") 
     var source = document.getElementById("source") 
     document.getElementById("title").innerText = "Video " + String(video + 1)
     source.setAttribute("src", fileNames[video]);
+    vid.autoplay = true;
     vid.load();
 }
 

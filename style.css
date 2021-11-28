@@ -4,6 +4,14 @@ video {
     margin: auto;
 }
 
+button {
+    width: 35%;
+    height: 4%
+}
 .button-container {
+    text-align: center;
+}
+
+h4 {
     text-align: center;
 }
