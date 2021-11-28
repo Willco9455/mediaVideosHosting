@@ -2,7 +2,7 @@
 
 var pass = ''
 while (pass != 'password') {
-    var pass = prompt('Please Enter Your Password',' ');
+    var pass = prompt('Please Enter Your Password', '');
 }
 
 
