@@ -1,3 +1,5 @@
+// 61 vids
+
 const fileNames = [ 
     "./videos/DSC_0006.MOV",
     "./videos/DSC_0008.MOV",
@@ -62,17 +64,52 @@ const fileNames = [
     "./videos/VID_20190329_190855.mp4"
 ];
 
-for (video of fileNames) {
-    var vid = document.createElement("video"); 
-    var source = document.createElement('source')  
-    // width="320" height=auto controls
-    source.setAttribute("src", video);
-    source.setAttribute("type", "video/mp4");
-    vid.setAttribute("width", "400");
-    vid.setAttribute("height", "auto");
-    vid.setAttribute("controls", "");
-    vid.appendChild(source)
-    document.body.appendChild(vid); 
-};
+console.log(fileNames.length)
+var video = 0
+// var source = document.getElementById("source") 
+// source.setAttribute("src", "./videos/DSC_0006.MOV");
+// source.setAttribute("type", "video/mp4");
 
+var vid = document.createElement("video"); 
+var source = document.createElement('source') 
+ 
+// width="320" height=auto controls
+source.setAttribute("src", fileNames[video]);
+source.setAttribute("type", "video/mp4");
+source.setAttribute("id", "source");
+vid.setAttribute("width", "700");
+vid.setAttribute("height", "auto");
+vid.setAttribute("controls", "");
+vid.setAttribute("id", "video");
+vid.appendChild(source)
+document.body.appendChild(vid); 
+document.getElementById("title").innerText = "Video " + String(video + 1)
+
+function next() {
+    if (video < fileNames.length - 1) {
+        video = video + 1
+    }else{
+        return
+    }
+
+    var vid = document.getElementById("video") 
+    var source = document.getElementById("source") 
+    document.getElementById("title").innerText = "Video " + String(video + 1)
+    source.setAttribute("src", fileNames[video]);
+    vid.load();
+}
+
+function back() {
+    if (video != 0) {
+        video = video - 1
+    }else{
+        return
+    }
+
+    var vid = document.getElementById("video") 
+    var source = document.getElementById("source") 
+    document.getElementById("title").innerText = "Video " + String(video + 1)
+    source.setAttribute("src", fileNames[video]);
+    vid.load();
+}
 
